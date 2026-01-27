@@ -17,11 +17,14 @@ internal static class Program
         db.EnsureCreated();
 
         var repo = new DapperTaskRepository(factory);
+        var userRepo = new DapperUserRepository(factory);
 
         var service = new TaskService(repo);
+        var userService = new UserService(userRepo);
 
         var vm = new MainViewModel(service);
+        var uvm = new UserViewModel(userService);
 
-        System.Windows.Forms.Application.Run(new TaskAppForm(vm));
+        System.Windows.Forms.Application.Run(new TaskAppForm(vm, uvm));
     }
 }

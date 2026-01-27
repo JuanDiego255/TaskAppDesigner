@@ -6,13 +6,15 @@ namespace TaskApp.WinForms;
 public partial class TaskAppForm : Form
 {
     private readonly MainViewModel _vm;
+    private readonly UserViewModel _uvm;
     private readonly BindingSource _bs = new();
     private readonly System.Windows.Forms.Timer _filterTimer = new();
 
-    public TaskAppForm(MainViewModel vm)
+    public TaskAppForm(MainViewModel vm, UserViewModel uvm)
     {
         InitializeComponent();
         _vm = vm;
+        _uvm = uvm;
 
         ConfigureFilterTimer();
         SetComboBoxes();
@@ -148,7 +150,7 @@ public partial class TaskAppForm : Form
     /// </param>
     private async void BtnNew_Click(object? sender, EventArgs e)
     {
-        var dlg = new TaskEditForm();
+        var dlg = new TaskEditForm(_uvm);
         if (dlg.ShowDialog(this) != DialogResult.OK) return;
 
         try
@@ -183,7 +185,7 @@ public partial class TaskAppForm : Form
             return;
         }
 
-        var dlg = new TaskEditForm(selected);
+        var dlg = new TaskEditForm(_uvm, selected);
         if (dlg.ShowDialog(this) != DialogResult.OK) return;
 
         try

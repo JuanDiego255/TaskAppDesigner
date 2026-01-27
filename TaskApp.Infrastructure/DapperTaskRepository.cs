@@ -16,16 +16,17 @@ public class DapperTaskRepository : ITaskRepository
 
         var sql = """
         SELECT
-            id as Id,
-            description as Description,
-            assigned_user as AssignedUser,
+            t.id as Id,
+            t.description as Description,
+            assigned_user_id as AssignedUser,
+            usr.name as Name,
             status as Status,
             priority as Priority,
             due_date as DueDateStr,
             notes as Notes,
-            created_at_utc as CreatedAtUtcStr,
-            updated_at_utc as UpdatedAtUtcStr
-        FROM tasks
+            t.created_at_utc as CreatedAtUtcStr,
+            t.updated_at_utc as UpdatedAtUtcStr
+        FROM tasks t inner join users usr on t.assigned_user_id = usr.id
         WHERE 1=1
         """;
 
@@ -33,7 +34,7 @@ public class DapperTaskRepository : ITaskRepository
 
         if (!string.IsNullOrWhiteSpace(query.Text))
         {
-            sql += " AND description LIKE @text ";
+            sql += " AND t.description LIKE @text ";
             p.Add("text", $"%{query.Text.Trim()}%");
         }
         if (query.Status is not null)
@@ -48,8 +49,8 @@ public class DapperTaskRepository : ITaskRepository
         }
         if (!string.IsNullOrWhiteSpace(query.AssignedUser))
         {
-            sql += " AND assigned_user = @user ";
-            p.Add("user", query.AssignedUser.Trim());
+            sql += " AND usr.name LIKE @user ";
+            p.Add("user", $"%{query.AssignedUser.Trim()}%");
         }
 
         sql += " ORDER BY due_date ASC;";
@@ -63,7 +64,8 @@ public class DapperTaskRepository : ITaskRepository
             {
                 Id = (long)r.Id,
                 Description = (string)r.Description,
-                AssignedUser = (string)r.AssignedUser,
+                AssignedUser = (long)r.AssignedUser,
+                Name = (string)r.Name,
                 Status = (TaskStatusApp)(long)r.Status,
                 Priority = (TaskPriority)(long)r.Priority,
                 DueDate = DateOnly.Parse((string)r.DueDateStr),
@@ -83,17 +85,18 @@ public class DapperTaskRepository : ITaskRepository
 
         var row = await con.QueryFirstOrDefaultAsync("""
         SELECT
-            id as Id,
-            description as Description,
-            assigned_user as AssignedUser,
+            t.id as Id,
+            t.description as Description,
+            assigned_user_id as AssignedUser,
+            usr.name as Name,
             status as Status,
             priority as Priority,
             due_date as DueDateStr,
             notes as Notes,
-            created_at_utc as CreatedAtUtcStr,
-            updated_at_utc as UpdatedAtUtcStr
-        FROM tasks
-        WHERE id = @id
+            t.created_at_utc as CreatedAtUtcStr,
+            t.updated_at_utc as UpdatedAtUtcStr
+        FROM tasks t inner join users usr on t.assigned_user_id = usr.id
+        WHERE t.id = @id
         LIMIT 1;
         """, new { id });
 
@@ -103,7 +106,8 @@ public class DapperTaskRepository : ITaskRepository
         {
             Id = (long)row.Id,
             Description = (string)row.Description,
-            AssignedUser = (string)row.AssignedUser,
+            AssignedUser = (long)row.AssignedUser,
+            Name = (string)row.Name,
             Status = (TaskStatusApp)(long)row.Status,
             Priority = (TaskPriority)(long)row.Priority,
             DueDate = DateOnly.Parse((string)row.DueDateStr),
@@ -125,7 +129,7 @@ public class DapperTaskRepository : ITaskRepository
         con.Open();
 
         var id = await con.ExecuteScalarAsync<long>("""
-        INSERT INTO tasks(description, assigned_user, status, priority, due_date, notes, created_at_utc, updated_at_utc)
+        INSERT INTO tasks(description, assigned_user_id, status, priority, due_date, notes, created_at_utc, updated_at_utc)
         VALUES(@Description, @AssignedUser, @Status, @Priority, @DueDate, @Notes, @CreatedAtUtc, @UpdatedAtUtc);
         SELECT last_insert_rowid();
         """, new
@@ -155,7 +159,7 @@ public class DapperTaskRepository : ITaskRepository
         await con.ExecuteAsync("""
         UPDATE tasks
         SET description=@Description,
-            assigned_user=@AssignedUser,
+            assigned_user_id=@AssignedUser,
             status=@Status,
             priority=@Priority,
             due_date=@DueDate,

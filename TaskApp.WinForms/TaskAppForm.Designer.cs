@@ -551,7 +551,7 @@
             this._txtUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this._txtUser.Location = new System.Drawing.Point(687, 3);
             this._txtUser.Name = "_txtUser";
-            this._txtUser.PlaceholderText = "Usuario (exacto)";
+            this._txtUser.PlaceholderText = "Usuario";
             this._txtUser.Size = new System.Drawing.Size(166, 23);
             this._txtUser.TabIndex = 3;
 
@@ -634,7 +634,7 @@
             //
             // _colUser
             //
-            this._colUser.DataPropertyName = "AssignedUser";
+            this._colUser.DataPropertyName = "Name";
             this._colUser.HeaderText = "Usuario";
             this._colUser.Name = "_colUser";
             this._colUser.ReadOnly = true;

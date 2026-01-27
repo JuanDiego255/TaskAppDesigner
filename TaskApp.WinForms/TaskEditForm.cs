@@ -1,3 +1,5 @@
+using Microsoft.VisualBasic.ApplicationServices;
+using System.Threading.Tasks;
 using TaskApp.Domain;
 
 namespace TaskApp.WinForms;
@@ -12,6 +14,9 @@ public partial class TaskEditForm : Form
     /// Modelo de la tarea que se está editando o creando.
     /// </summary>
     public TaskItem Model { get; private set; }
+    public UserItem UserModel { get; private set; }
+    private readonly UserViewModel _uvm;
+    private readonly BindingSource _usersBindingSource = new();
 
     /// <summary>
     /// Constructor del formulario de edición de tareas.
@@ -19,17 +24,22 @@ public partial class TaskEditForm : Form
     /// <param name="existing">
     /// Tarea existente a editar. Si es null, se crea una nueva tarea.
     /// </param>
-    public TaskEditForm(TaskItem? existing = null)
+    public TaskEditForm(UserViewModel uvm,TaskItem? existing = null)
     {
+        bool bEdit = false;
         Model = existing is null
             ? new TaskItem { DueDate = DateOnly.FromDateTime(DateTime.Today.AddDays(1)) }
             : Clone(existing);
+        _uvm = uvm;
+
+        if (existing is not null)
+            bEdit = true;
 
         InitializeComponent();
         ConfigureForm();
         SetComboBoxPriority();
         SetEvents();
-        LoadModelToUi();
+        LoadModelToUi(bEdit);
     }
 
     #region Inicialización
@@ -103,10 +113,18 @@ public partial class TaskEditForm : Form
     /// <summary>
     /// Carga los datos del modelo en los controles del formulario.
     /// </summary>
-    private void LoadModelToUi()
+    private async void LoadModelToUi(bool pbEdit)
     {
         _txtDescription.Text = Model.Description;
-        _txtUser.Text = Model.AssignedUser;
+        await _uvm.GetListComboBox();
+
+        _usersBindingSource.DataSource = _uvm.Items;
+
+        _cmbUser.DataSource = _usersBindingSource;
+        _cmbUser.DisplayMember = "Name";
+        _cmbUser.ValueMember = "Id";
+        if(pbEdit)
+            _cmbUser.SelectedValue = Model.AssignedUser;
         _dtDue.Value = Model.DueDate.ToDateTime(TimeOnly.MinValue);
 
         // Selecciona la prioridad correspondiente en el combobox
@@ -136,14 +154,14 @@ public partial class TaskEditForm : Form
         error = "";
 
         var desc = _txtDescription.Text.Trim();
-        var usr = _txtUser.Text.Trim();
+        var usr = (UserItem)_cmbUser.SelectedItem;
 
         if (string.IsNullOrWhiteSpace(desc))
         {
             error = "La descripción es requerida.";
             return false;
         }
-        if (string.IsNullOrWhiteSpace(usr))
+        if (string.IsNullOrWhiteSpace(usr.Name))
         {
             error = "El usuario es requerido.";
             return false;
@@ -152,7 +170,7 @@ public partial class TaskEditForm : Form
         var pr = (_cmbPriority.SelectedItem as ComboItem<TaskPriority>)?.Value ?? TaskPriority.Medium;
 
         Model.Description = desc;
-        Model.AssignedUser = usr;
+        Model.AssignedUser = usr.Id;
         Model.Priority = pr;
         Model.DueDate = DateOnly.FromDateTime(_dtDue.Value.Date);
         Model.Notes = string.IsNullOrWhiteSpace(_txtNotes.Text) ? null : _txtNotes.Text.Trim();

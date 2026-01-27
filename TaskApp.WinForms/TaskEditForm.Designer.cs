@@ -34,10 +34,10 @@ namespace TaskApp.WinForms
             _lblTitle = new Label();
             _contentPanel = new Panel();
             _formLayout = new TableLayoutPanel();
+            _cmbUser = new ComboBox();
             _lblDescription = new Label();
             _txtDescription = new TextBox();
             _lblUser = new Label();
-            _txtUser = new TextBox();
             _lblPriority = new Label();
             _cmbPriority = new ComboBox();
             _lblDueDate = new Label();
@@ -118,10 +118,10 @@ namespace TaskApp.WinForms
             _formLayout.ColumnCount = 2;
             _formLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 110F));
             _formLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            _formLayout.Controls.Add(_cmbUser, 1, 1);
             _formLayout.Controls.Add(_lblDescription, 0, 0);
             _formLayout.Controls.Add(_txtDescription, 1, 0);
             _formLayout.Controls.Add(_lblUser, 0, 1);
-            _formLayout.Controls.Add(_txtUser, 1, 1);
             _formLayout.Controls.Add(_lblPriority, 0, 2);
             _formLayout.Controls.Add(_cmbPriority, 1, 2);
             _formLayout.Controls.Add(_lblDueDate, 0, 3);
@@ -137,8 +137,23 @@ namespace TaskApp.WinForms
             _formLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             _formLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             _formLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            _formLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             _formLayout.Size = new Size(480, 340);
             _formLayout.TabIndex = 0;
+            // 
+            // _cmbUser
+            // 
+            _cmbUser.Anchor = AnchorStyles.Left;
+            _cmbUser.BackColor = Color.FromArgb(250, 250, 252);
+            _cmbUser.DropDownStyle = ComboBoxStyle.DropDownList;
+            _cmbUser.FlatStyle = FlatStyle.Flat;
+            _cmbUser.Font = new Font("Segoe UI", 10F);
+            _cmbUser.ForeColor = Color.FromArgb(30, 30, 30);
+            _cmbUser.FormattingEnabled = true;
+            _cmbUser.Location = new Point(113, 61);
+            _cmbUser.Name = "_cmbUser";
+            _cmbUser.Size = new Size(200, 25);
+            _cmbUser.TabIndex = 10;
             // 
             // _lblDescription
             // 
@@ -177,18 +192,6 @@ namespace TaskApp.WinForms
             _lblUser.TabIndex = 2;
             _lblUser.Text = "Usuario *";
             _lblUser.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // _txtUser
-            // 
-            _txtUser.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            _txtUser.BackColor = Color.FromArgb(250, 250, 252);
-            _txtUser.BorderStyle = BorderStyle.FixedSingle;
-            _txtUser.Font = new Font("Segoe UI", 10F);
-            _txtUser.ForeColor = Color.FromArgb(30, 30, 30);
-            _txtUser.Location = new Point(113, 62);
-            _txtUser.Name = "_txtUser";
-            _txtUser.Size = new Size(364, 25);
-            _txtUser.TabIndex = 3;
             // 
             // _lblPriority
             // 
@@ -376,7 +379,6 @@ namespace TaskApp.WinForms
         private System.Windows.Forms.Label _lblDescription;
         private System.Windows.Forms.TextBox _txtDescription;
         private System.Windows.Forms.Label _lblUser;
-        private System.Windows.Forms.TextBox _txtUser;
         private System.Windows.Forms.Label _lblPriority;
         private System.Windows.Forms.ComboBox _cmbPriority;
         private System.Windows.Forms.Label _lblDueDate;
@@ -388,5 +390,6 @@ namespace TaskApp.WinForms
         private System.Windows.Forms.Button _btnOk;
         private System.Windows.Forms.Button _btnCancel;
         private System.Windows.Forms.ToolTip _toolTip;
+        private ComboBox _cmbUser;
     }
 }
