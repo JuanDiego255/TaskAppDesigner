@@ -8,7 +8,18 @@ public partial class TaskAppForm : Form
     private readonly MainViewModel _vm;
     private readonly UserViewModel _uvm;
     private readonly BindingSource _bs = new();
+    private readonly BindingSource _userBs = new();
     private readonly System.Windows.Forms.Timer _filterTimer = new();
+    private readonly System.Windows.Forms.Timer _userFilterTimer = new();
+
+    /// <summary>
+    /// Color activo para el botón del sidebar seleccionado.
+    /// </summary>
+    private static readonly Color SideActiveColor = Color.FromArgb(45, 52, 66);
+    /// <summary>
+    /// Color inactivo para los botones del sidebar.
+    /// </summary>
+    private static readonly Color SideInactiveColor = Color.FromArgb(32, 37, 48);
 
     public TaskAppForm(MainViewModel vm, UserViewModel uvm)
     {
@@ -17,11 +28,18 @@ public partial class TaskAppForm : Form
         _uvm = uvm;
 
         ConfigureFilterTimer();
+        ConfigureUserFilterTimer();
         SetComboBoxes();
         SetEvents();
 
         _bs.DataSource = _vm.Items;
         _grid.DataSource = _bs;
+
+        _userBs.DataSource = _uvm.Items;
+        _userGrid.DataSource = _userBs;
+
+        // Estado inicial: vista de tareas activa
+        HighlightSideButton(_btnTareas);
     }
 
     protected override async void OnLoad(EventArgs e)
@@ -41,6 +59,18 @@ public partial class TaskAppForm : Form
         {
             _filterTimer.Stop();
             await ReloadGridAsync();
+        };
+    }
+    /// <summary>
+    /// Establece un timer para los filtros de usuarios.
+    /// </summary>
+    private void ConfigureUserFilterTimer()
+    {
+        _userFilterTimer.Interval = 350;
+        _userFilterTimer.Tick += async (_, __) =>
+        {
+            _userFilterTimer.Stop();
+            await ReloadUserGridAsync();
         };
     }
     /// <summary>
@@ -65,22 +95,30 @@ public partial class TaskAppForm : Form
     /// </summary>
     private void SetEvents()
     {
-        // Filter events
+        // Filter events (Tasks)
         _txtSearch.TextChanged += (_, __) => DebounceReload();
         _txtUser.TextChanged += (_, __) => DebounceReload();
         _cmbStatus.SelectedIndexChanged += (_, __) => DebounceReload();
         _cmbPriority.SelectedIndexChanged += (_, __) => DebounceReload();
 
-        // Grid events
+        // Filter events (Users)
+        _txtUserSearch.TextChanged += (_, __) => DebounceUserReload();
+
+        // Grid events (Tasks)
         _grid.SelectionChanged += (_, __) => UpdateActionButtons();
         _grid.CellFormatting += Grid_CellFormatting;
         _grid.CellPainting += Grid_CellPainting_AppChips;
         _grid.CellDoubleClick += Grid_CellDoubleClick;
 
-        // Grid card paint event for rounded border
-        _gridCard.Paint += GridCard_Paint;
+        // Grid events (Users)
+        _userGrid.SelectionChanged += (_, __) => UpdateUserActionButtons();
+        _userGrid.CellDoubleClick += UserGrid_CellDoubleClick;
 
-        // Button events
+        // Grid card paint events for rounded border
+        _gridCard.Paint += GridCard_Paint;
+        _userGridCard.Paint += UserGridCard_Paint;
+
+        // Task button events
         _btnRefresh.Click += BtnRefresh_Click;
         _btnNew.Click += BtnNew_Click;
         _btnEdit.Click += BtnEdit_Click;
@@ -88,13 +126,94 @@ public partial class TaskAppForm : Form
         _btnToInProgress.Click += BtnToInProgress_Click;
         _btnToDone.Click += BtnToDone_Click;
 
+        // User button events
+        _btnNewUser.Click += BtnNewUser_Click;
+        _btnEditUser.Click += BtnEditUser_Click;
+        _btnDeleteUser.Click += BtnDeleteUser_Click;
+        _btnRefreshUser.Click += BtnRefreshUser_Click;
+
+        // Sidebar navigation events
+        _btnTareas.Click += BtnTareas_Click;
+        _btnUsuarios.Click += BtnUsuarios_Click;
+
         // Initial button state
         UpdateActionButtons();
     }
 
     #endregion
 
-    #region Funciones de datos
+    #region Navegación Sidebar
+    /// <summary>
+    /// Muestra la vista de tareas y oculta la de usuarios.
+    /// </summary>
+    private async void BtnTareas_Click(object? sender, EventArgs e)
+    {
+        ShowTaskView();
+        await ReloadGridAsync();
+    }
+    /// <summary>
+    /// Muestra la vista de usuarios y oculta la de tareas.
+    /// </summary>
+    private async void BtnUsuarios_Click(object? sender, EventArgs e)
+    {
+        ShowUserView();
+        await ReloadUserGridAsync();
+    }
+    /// <summary>
+    /// Alterna la visibilidad de los paneles de contenido para mostrar tareas.
+    /// </summary>
+    private void ShowTaskView()
+    {
+        _lblTitle.Text = "Administrador de tareas";
+
+        // Toggle content panels
+        _contentLayout.Visible = true;
+        _userContentLayout.Visible = false;
+
+        // Toggle toolbar
+        _navActions.Visible = true;
+        _navActionsUser.Visible = false;
+
+        // Ajustar row styles del content wrapper
+        _contentWrapper.RowStyles[1] = new RowStyle(SizeType.Percent, 100F);
+        _contentWrapper.RowStyles[2] = new RowStyle(SizeType.Percent, 0F);
+
+        HighlightSideButton(_btnTareas);
+    }
+    /// <summary>
+    /// Alterna la visibilidad de los paneles de contenido para mostrar usuarios.
+    /// </summary>
+    private void ShowUserView()
+    {
+        _lblTitle.Text = "Administrador de usuarios";
+
+        // Toggle content panels
+        _contentLayout.Visible = false;
+        _userContentLayout.Visible = true;
+
+        // Toggle toolbar
+        _navActions.Visible = false;
+        _navActionsUser.Visible = true;
+
+        // Ajustar row styles del content wrapper
+        _contentWrapper.RowStyles[1] = new RowStyle(SizeType.Percent, 0F);
+        _contentWrapper.RowStyles[2] = new RowStyle(SizeType.Percent, 100F);
+
+        HighlightSideButton(_btnUsuarios);
+    }
+    /// <summary>
+    /// Resalta el botón del sidebar seleccionado y desactiva los demás.
+    /// </summary>
+    private void HighlightSideButton(Button active)
+    {
+        _btnTareas.BackColor = SideInactiveColor;
+        _btnUsuarios.BackColor = SideInactiveColor;
+        active.BackColor = SideActiveColor;
+    }
+
+    #endregion
+
+    #region Funciones de datos (Tareas)
     /// <summary>
     /// Recarga los datos en el grid según los filtros seleccionados.
     /// </summary>
@@ -128,7 +247,38 @@ public partial class TaskAppForm : Form
 
     #endregion
 
-    #region Eventos de los botones
+    #region Funciones de datos (Usuarios)
+    /// <summary>
+    /// Recarga los datos en el grid de usuarios según el filtro de nombre.
+    /// </summary>
+    private async Task ReloadUserGridAsync()
+    {
+        _uvm.FilterUser = string.IsNullOrWhiteSpace(_txtUserSearch.Text) ? null : _txtUserSearch.Text.Trim();
+
+        try
+        {
+            UseWaitCursor = true;
+            await _uvm.ReloadAsyncUser();
+            _userBs.ResetBindings(false);
+            UpdateUserActionButtons();
+        }
+        finally
+        {
+            UseWaitCursor = false;
+        }
+    }
+    /// <summary>
+    /// Ejecuta el timer de usuarios.
+    /// </summary>
+    private void DebounceUserReload()
+    {
+        _userFilterTimer.Stop();
+        _userFilterTimer.Start();
+    }
+
+    #endregion
+
+    #region Eventos de los botones (Tareas)
     /// <summary>
     /// Refresca el gridView.
     /// </summary>
@@ -287,7 +437,81 @@ public partial class TaskAppForm : Form
 
     #endregion
 
-    #region Eventos del Grid
+    #region Eventos de los botones (Usuarios)
+    /// <summary>
+    /// Refresca el gridView de usuarios.
+    /// </summary>
+    private async void BtnRefreshUser_Click(object? sender, EventArgs e)
+    {
+        _btnRefreshUser.Enabled = false;
+        try { await ReloadUserGridAsync(); }
+        finally { _btnRefreshUser.Enabled = true; }
+    }
+    /// <summary>
+    /// Abre el formulario para crear un nuevo usuario.
+    /// </summary>
+    private async void BtnNewUser_Click(object? sender, EventArgs e)
+    {
+        var dlg = new UserEditForm();
+        if (dlg.ShowDialog(this) != DialogResult.OK) return;
+
+        try
+        {
+            await _uvm.CreateAsync(dlg.Model);
+            await ReloadUserGridAsync();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+    /// <summary>
+    /// Abre el formulario para editar el usuario seleccionado.
+    /// </summary>
+    private async void BtnEditUser_Click(object? sender, EventArgs e)
+    {
+        var selected = GetSelectedUser();
+        if (selected is null) return;
+
+        var dlg = new UserEditForm(selected);
+        if (dlg.ShowDialog(this) != DialogResult.OK) return;
+
+        try
+        {
+            await _uvm.UpdateAsync(dlg.Model);
+            await ReloadUserGridAsync();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+    /// <summary>
+    /// Elimina el usuario seleccionado luego de confirmación.
+    /// </summary>
+    private async void BtnDeleteUser_Click(object? sender, EventArgs e)
+    {
+        var selected = GetSelectedUser();
+        if (selected is null) return;
+
+        var ok = MessageBox.Show("¿Eliminar el usuario seleccionado?", "Confirmar",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+        if (ok != DialogResult.Yes) return;
+
+        try
+        {
+            await _uvm.DeleteAsync(selected.Id);
+            await ReloadUserGridAsync();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+
+    #endregion
+
+    #region Eventos del Grid (Tareas)
     /// <summary>
     /// Despliega el formulario de edición siempre y cuando esté en pendiente, esto al presionar doble click sobre una fila del grid.
     /// </summary>
@@ -457,20 +681,41 @@ public partial class TaskAppForm : Form
             ControlPaint.DrawFocusRectangle(g, e.CellBounds);
     }
     /// <summary>
-    /// Crea un estilo moderno con borde circular para el gridView.
+    /// Crea un estilo moderno con borde circular para el gridView de tareas.
     /// </summary>
-    /// <param name="sender">
-    /// Objeto que dispara el evento (normalmente el Button).
-    /// </param>
-    /// <param name="e">
-    /// Datos del evento Click. No contiene información adicional.
-    /// </param>
     private void GridCard_Paint(object? sender, PaintEventArgs e)
     {
         var g = e.Graphics;
         g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
         var rect = _gridCard.ClientRectangle;
+        rect.Inflate(-1, -1);
+
+        using var pen = new Pen(Color.FromArgb(230, 234, 240), 1);
+        using var path = RoundedRect(rect, 16);
+        g.DrawPath(pen, path);
+    }
+
+    #endregion
+
+    #region Eventos del Grid (Usuarios)
+    /// <summary>
+    /// Doble click en el grid de usuarios abre el formulario de edición.
+    /// </summary>
+    private void UserGrid_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
+    {
+        if (e.RowIndex < 0) return;
+        _btnEditUser.PerformClick();
+    }
+    /// <summary>
+    /// Crea un estilo moderno con borde circular para el gridView de usuarios.
+    /// </summary>
+    private void UserGridCard_Paint(object? sender, PaintEventArgs e)
+    {
+        var g = e.Graphics;
+        g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+        var rect = _userGridCard.ClientRectangle;
         rect.Inflate(-1, -1);
 
         using var pen = new Pen(Color.FromArgb(230, 234, 240), 1);
@@ -500,6 +745,24 @@ public partial class TaskAppForm : Form
         return _grid.SelectedRows[0].DataBoundItem as TaskItem;
     }
     /// <summary>
+    /// Verifica que haya una fila seleccionada en el grid de usuarios.
+    /// </summary>
+    private UserItem? GetSelectedUser()
+    {
+        if (_userGrid.SelectedRows.Count == 0)
+        {
+            MessageBox.Show("Seleccioná una fila primero.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return null;
+        }
+        return _userGrid.SelectedRows[0].DataBoundItem as UserItem;
+    }
+
+    private UserItem? GetSelectedUserSilent()
+    {
+        if (_userGrid.SelectedRows.Count == 0) return null;
+        return _userGrid.SelectedRows[0].DataBoundItem as UserItem;
+    }
+    /// <summary>
     /// Cambia el estado Enable del botón según el estado de la fila seleccionada.
     /// </summary>
     private void UpdateActionButtons()
@@ -511,6 +774,17 @@ public partial class TaskAppForm : Form
         _btnDelete.Enabled = has && item!.Status != TaskStatusApp.InProgress;
         _btnToInProgress.Enabled = has && item!.Status == TaskStatusApp.Pending;
         _btnToDone.Enabled = has && item!.Status == TaskStatusApp.InProgress;
+    }
+    /// <summary>
+    /// Cambia el estado Enable de los botones de usuario según si hay fila seleccionada.
+    /// </summary>
+    private void UpdateUserActionButtons()
+    {
+        var item = GetSelectedUserSilent();
+        var has = item is not null;
+
+        _btnEditUser.Enabled = has;
+        _btnDeleteUser.Enabled = has;
     }
 
     private static System.Drawing.Drawing2D.GraphicsPath RoundedRect(Rectangle r, int radius)

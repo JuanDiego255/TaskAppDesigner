@@ -28,568 +28,610 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-
-            this._rootLayout = new System.Windows.Forms.TableLayoutPanel();
-            this._bodyLayout = new System.Windows.Forms.TableLayoutPanel();
-            this._contentWrapper = new System.Windows.Forms.TableLayoutPanel();
-            this._contentLayout = new System.Windows.Forms.TableLayoutPanel();
-            this._filtersLayout = new System.Windows.Forms.TableLayoutPanel();
-            this._topbar = new System.Windows.Forms.Panel();
-            this._navLayout = new System.Windows.Forms.TableLayoutPanel();
-            this._lblTitle = new System.Windows.Forms.Label();
-            this._navActions = new System.Windows.Forms.FlowLayoutPanel();
-            this._btnNew = new System.Windows.Forms.Button();
-            this._btnEdit = new System.Windows.Forms.Button();
-            this._btnDelete = new System.Windows.Forms.Button();
-            this._btnToInProgress = new System.Windows.Forms.Button();
-            this._btnToDone = new System.Windows.Forms.Button();
-            this._btnRefresh = new System.Windows.Forms.Button();
-            this._separatorPanel = new System.Windows.Forms.Panel();
-            this._sidebar = new System.Windows.Forms.Panel();
-            this._sideHeader = new System.Windows.Forms.Panel();
-            this._lblMenu = new System.Windows.Forms.Label();
-            this._sideMenu = new System.Windows.Forms.FlowLayoutPanel();
-            this._btnDashboard = new System.Windows.Forms.Button();
-            this._btnTareas = new System.Windows.Forms.Button();
-            this._contentSeparator = new System.Windows.Forms.Panel();
-            this._gridCard = new System.Windows.Forms.Panel();
-            this._txtSearch = new System.Windows.Forms.TextBox();
-            this._cmbStatus = new System.Windows.Forms.ComboBox();
-            this._cmbPriority = new System.Windows.Forms.ComboBox();
-            this._txtUser = new System.Windows.Forms.TextBox();
-            this._grid = new System.Windows.Forms.DataGridView();
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            _rootLayout = new TableLayoutPanel();
+            _topbar = new Panel();
+            _navLayout = new TableLayoutPanel();
+            _lblTitle = new Label();
+            _navActions = new FlowLayoutPanel();
+            _btnNew = new Button();
+            _btnEdit = new Button();
+            _btnDelete = new Button();
+            _separatorPanel = new Panel();
+            _btnToInProgress = new Button();
+            _btnToDone = new Button();
+            _btnRefresh = new Button();
+            _navActionsUser = new FlowLayoutPanel();
+            _btnNewUser = new Button();
+            _btnEditUser = new Button();
+            _btnDeleteUser = new Button();
+            _btnRefreshUser = new Button();
+            _bodyLayout = new TableLayoutPanel();
+            _sidebar = new Panel();
+            _sideMenu = new FlowLayoutPanel();
+            _btnTareas = new Button();
+            _btnUsuarios = new Button();
+            _sideHeader = new Panel();
+            _lblMenu = new Label();
+            _contentWrapper = new TableLayoutPanel();
+            _contentSeparator = new Panel();
+            _contentLayout = new TableLayoutPanel();
+            _filtersLayout = new TableLayoutPanel();
+            _txtSearch = new TextBox();
+            _cmbStatus = new ComboBox();
+            _cmbPriority = new ComboBox();
+            _txtUser = new TextBox();
+            _gridCard = new Panel();
+            _grid = new DataGridView();
+            _userContentLayout = new TableLayoutPanel();
+            _userFiltersLayout = new TableLayoutPanel();
+            _txtUserSearch = new TextBox();
+            _userGridCard = new Panel();
+            _userGrid = new DataGridView();
+            _btnDashboard = new Button();
             this._colDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._colUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._colPriority = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._colDue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._colNotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._toolTip = new System.Windows.Forms.ToolTip(this.components);
-
-            this._rootLayout.SuspendLayout();
-            this._bodyLayout.SuspendLayout();
-            this._contentWrapper.SuspendLayout();
-            this._contentLayout.SuspendLayout();
-            this._filtersLayout.SuspendLayout();
-            this._topbar.SuspendLayout();
-            this._navLayout.SuspendLayout();
-            this._navActions.SuspendLayout();
-            this._sidebar.SuspendLayout();
-            this._sideHeader.SuspendLayout();
-            this._sideMenu.SuspendLayout();
-            this._gridCard.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._grid)).BeginInit();
-            this.SuspendLayout();
-
-            //
-            // _toolTip
-            //
-            this._toolTip.AutomaticDelay = 150;
-            this._toolTip.AutoPopDelay = 5000;
-            this._toolTip.ReshowDelay = 100;
-            this._toolTip.ShowAlways = true;
-
-            //
+            this._colUserDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._colUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._colUserCreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            _toolTip = new ToolTip(components);
+            _rootLayout.SuspendLayout();
+            _topbar.SuspendLayout();
+            _navLayout.SuspendLayout();
+            _navActions.SuspendLayout();
+            _navActionsUser.SuspendLayout();
+            _bodyLayout.SuspendLayout();
+            _sidebar.SuspendLayout();
+            _sideMenu.SuspendLayout();
+            _sideHeader.SuspendLayout();
+            _contentWrapper.SuspendLayout();
+            _contentLayout.SuspendLayout();
+            _filtersLayout.SuspendLayout();
+            _gridCard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)_grid).BeginInit();
+            _userContentLayout.SuspendLayout();
+            _userFiltersLayout.SuspendLayout();
+            _userGridCard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)_userGrid).BeginInit();
+            SuspendLayout();
+            // 
             // _rootLayout
-            //
-            this._rootLayout.ColumnCount = 1;
-            this._rootLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._rootLayout.Controls.Add(this._topbar, 0, 0);
-            this._rootLayout.Controls.Add(this._bodyLayout, 0, 1);
-            this._rootLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._rootLayout.Location = new System.Drawing.Point(0, 0);
-            this._rootLayout.Name = "_rootLayout";
-            this._rootLayout.Padding = System.Windows.Forms.Padding.Empty;
-            this._rootLayout.RowCount = 2;
-            this._rootLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
-            this._rootLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._rootLayout.Size = new System.Drawing.Size(1100, 650);
-            this._rootLayout.TabIndex = 0;
-            this._rootLayout.BackColor = System.Drawing.Color.White;
-
-            //
+            // 
+            _rootLayout.BackColor = Color.White;
+            _rootLayout.ColumnCount = 1;
+            _rootLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            _rootLayout.Controls.Add(_topbar, 0, 0);
+            _rootLayout.Controls.Add(_bodyLayout, 0, 1);
+            _rootLayout.Dock = DockStyle.Fill;
+            _rootLayout.Location = new Point(0, 0);
+            _rootLayout.Name = "_rootLayout";
+            _rootLayout.RowCount = 2;
+            _rootLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 62F));
+            _rootLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            _rootLayout.Size = new Size(1100, 650);
+            _rootLayout.TabIndex = 0;
+            // 
             // _topbar
-            //
-            this._topbar.BackColor = System.Drawing.Color.FromArgb(250, 250, 250);
-            this._topbar.Controls.Add(this._navLayout);
-            this._topbar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._topbar.Location = new System.Drawing.Point(0, 0);
-            this._topbar.Name = "_topbar";
-            this._topbar.Padding = new System.Windows.Forms.Padding(14, 10, 14, 10);
-            this._topbar.Size = new System.Drawing.Size(1100, 56);
-            this._topbar.TabIndex = 0;
-
-            //
+            // 
+            _topbar.BackColor = Color.FromArgb(250, 250, 250);
+            _topbar.Controls.Add(_navLayout);
+            _topbar.Dock = DockStyle.Fill;
+            _topbar.Location = new Point(3, 3);
+            _topbar.Name = "_topbar";
+            _topbar.Padding = new Padding(14, 10, 14, 10);
+            _topbar.Size = new Size(1094, 56);
+            _topbar.TabIndex = 0;
+            // 
             // _navLayout
-            //
-            this._navLayout.BackColor = System.Drawing.Color.Transparent;
-            this._navLayout.ColumnCount = 2;
-            this._navLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._navLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize));
-            this._navLayout.Controls.Add(this._lblTitle, 0, 0);
-            this._navLayout.Controls.Add(this._navActions, 1, 0);
-            this._navLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._navLayout.Location = new System.Drawing.Point(14, 10);
-            this._navLayout.Name = "_navLayout";
-            this._navLayout.RowCount = 1;
-            this._navLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._navLayout.Size = new System.Drawing.Size(1072, 36);
-            this._navLayout.TabIndex = 0;
-
-            //
+            // 
+            _navLayout.BackColor = Color.Transparent;
+            _navLayout.ColumnCount = 3;
+            _navLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            _navLayout.ColumnStyles.Add(new ColumnStyle());
+            _navLayout.ColumnStyles.Add(new ColumnStyle());
+            _navLayout.Controls.Add(_lblTitle, 0, 0);
+            _navLayout.Controls.Add(_navActions, 1, 0);
+            _navLayout.Controls.Add(_navActionsUser, 2, 0);
+            _navLayout.Dock = DockStyle.Fill;
+            _navLayout.Location = new Point(14, 10);
+            _navLayout.Name = "_navLayout";
+            _navLayout.RowCount = 1;
+            _navLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            _navLayout.Size = new Size(1066, 36);
+            _navLayout.TabIndex = 0;
+            // 
             // _lblTitle
-            //
-            this._lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this._lblTitle.ForeColor = System.Drawing.Color.FromArgb(25, 25, 25);
-            this._lblTitle.Location = new System.Drawing.Point(0, 0);
-            this._lblTitle.Name = "_lblTitle";
-            this._lblTitle.Size = new System.Drawing.Size(800, 36);
-            this._lblTitle.TabIndex = 0;
-            this._lblTitle.Text = "Administrador de tareas";
-            this._lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
-            //
+            // 
+            _lblTitle.Dock = DockStyle.Fill;
+            _lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            _lblTitle.ForeColor = Color.FromArgb(25, 25, 25);
+            _lblTitle.Location = new Point(3, 0);
+            _lblTitle.Name = "_lblTitle";
+            _lblTitle.Size = new Size(599, 36);
+            _lblTitle.TabIndex = 0;
+            _lblTitle.Text = "Administrador de tareas";
+            _lblTitle.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // _navActions
-            //
-            this._navActions.AutoSize = true;
-            this._navActions.Controls.Add(this._btnNew);
-            this._navActions.Controls.Add(this._btnEdit);
-            this._navActions.Controls.Add(this._btnDelete);
-            this._navActions.Controls.Add(this._separatorPanel);
-            this._navActions.Controls.Add(this._btnToInProgress);
-            this._navActions.Controls.Add(this._btnToDone);
-            this._navActions.Controls.Add(this._btnRefresh);
-            this._navActions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._navActions.FlowDirection = System.Windows.Forms.FlowDirection.LeftToRight;
-            this._navActions.Location = new System.Drawing.Point(800, 0);
-            this._navActions.Margin = System.Windows.Forms.Padding.Empty;
-            this._navActions.Name = "_navActions";
-            this._navActions.Padding = System.Windows.Forms.Padding.Empty;
-            this._navActions.Size = new System.Drawing.Size(272, 36);
-            this._navActions.TabIndex = 1;
-            this._navActions.WrapContents = false;
-
-            //
+            // 
+            _navActions.AutoSize = true;
+            _navActions.Controls.Add(_btnNew);
+            _navActions.Controls.Add(_btnEdit);
+            _navActions.Controls.Add(_btnDelete);
+            _navActions.Controls.Add(_separatorPanel);
+            _navActions.Controls.Add(_btnToInProgress);
+            _navActions.Controls.Add(_btnToDone);
+            _navActions.Controls.Add(_btnRefresh);
+            _navActions.Dock = DockStyle.Fill;
+            _navActions.Location = new Point(605, 0);
+            _navActions.Margin = new Padding(0);
+            _navActions.Name = "_navActions";
+            _navActions.Size = new Size(285, 36);
+            _navActions.TabIndex = 1;
+            _navActions.WrapContents = false;
+            // 
             // _btnNew
-            //
-            this._btnNew.BackColor = System.Drawing.Color.White;
-            this._btnNew.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._btnNew.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(220, 220, 220);
-            this._btnNew.FlatAppearance.BorderSize = 1;
-            this._btnNew.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(235, 235, 235);
-            this._btnNew.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(245, 245, 245);
-            this._btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnNew.Font = new System.Drawing.Font("Segoe UI Emoji", 11F);
-            this._btnNew.ForeColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            this._btnNew.Location = new System.Drawing.Point(2, 0);
-            this._btnNew.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this._btnNew.Name = "_btnNew";
-            this._btnNew.Padding = System.Windows.Forms.Padding.Empty;
-            this._btnNew.Size = new System.Drawing.Size(40, 36);
-            this._btnNew.TabIndex = 0;
-            this._btnNew.TabStop = false;
-            this._btnNew.Text = "➕";
-            this._btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this._btnNew.UseVisualStyleBackColor = false;
-            this._toolTip.SetToolTip(this._btnNew, "Crear (Nuevo)");
-
-            //
+            // 
+            _btnNew.BackColor = Color.White;
+            _btnNew.Cursor = Cursors.Hand;
+            _btnNew.FlatAppearance.BorderColor = Color.FromArgb(220, 220, 220);
+            _btnNew.FlatAppearance.MouseDownBackColor = Color.FromArgb(235, 235, 235);
+            _btnNew.FlatAppearance.MouseOverBackColor = Color.FromArgb(245, 245, 245);
+            _btnNew.FlatStyle = FlatStyle.Flat;
+            _btnNew.Font = new Font("Segoe UI Emoji", 11F);
+            _btnNew.ForeColor = Color.FromArgb(30, 30, 30);
+            _btnNew.Location = new Point(2, 0);
+            _btnNew.Margin = new Padding(2, 0, 2, 0);
+            _btnNew.Name = "_btnNew";
+            _btnNew.Size = new Size(40, 36);
+            _btnNew.TabIndex = 0;
+            _btnNew.TabStop = false;
+            _btnNew.Text = "➕";
+            _toolTip.SetToolTip(_btnNew, "Crear (Nuevo)");
+            _btnNew.UseVisualStyleBackColor = false;
+            // 
             // _btnEdit
-            //
-            this._btnEdit.BackColor = System.Drawing.Color.White;
-            this._btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(220, 220, 220);
-            this._btnEdit.FlatAppearance.BorderSize = 1;
-            this._btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(235, 235, 235);
-            this._btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(245, 245, 245);
-            this._btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnEdit.Font = new System.Drawing.Font("Segoe UI Emoji", 11F);
-            this._btnEdit.ForeColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            this._btnEdit.Location = new System.Drawing.Point(46, 0);
-            this._btnEdit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this._btnEdit.Name = "_btnEdit";
-            this._btnEdit.Padding = System.Windows.Forms.Padding.Empty;
-            this._btnEdit.Size = new System.Drawing.Size(40, 36);
-            this._btnEdit.TabIndex = 1;
-            this._btnEdit.TabStop = false;
-            this._btnEdit.Text = "✏️";
-            this._btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this._btnEdit.UseVisualStyleBackColor = false;
-            this._toolTip.SetToolTip(this._btnEdit, "Actualizar (Editar)");
-
-            //
+            // 
+            _btnEdit.BackColor = Color.White;
+            _btnEdit.Cursor = Cursors.Hand;
+            _btnEdit.FlatAppearance.BorderColor = Color.FromArgb(220, 220, 220);
+            _btnEdit.FlatAppearance.MouseDownBackColor = Color.FromArgb(235, 235, 235);
+            _btnEdit.FlatAppearance.MouseOverBackColor = Color.FromArgb(245, 245, 245);
+            _btnEdit.FlatStyle = FlatStyle.Flat;
+            _btnEdit.Font = new Font("Segoe UI Emoji", 11F);
+            _btnEdit.ForeColor = Color.FromArgb(30, 30, 30);
+            _btnEdit.Location = new Point(46, 0);
+            _btnEdit.Margin = new Padding(2, 0, 2, 0);
+            _btnEdit.Name = "_btnEdit";
+            _btnEdit.Size = new Size(40, 36);
+            _btnEdit.TabIndex = 1;
+            _btnEdit.TabStop = false;
+            _btnEdit.Text = "✏️";
+            _toolTip.SetToolTip(_btnEdit, "Actualizar (Editar)");
+            _btnEdit.UseVisualStyleBackColor = false;
+            // 
             // _btnDelete
-            //
-            this._btnDelete.BackColor = System.Drawing.Color.White;
-            this._btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(220, 220, 220);
-            this._btnDelete.FlatAppearance.BorderSize = 1;
-            this._btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(235, 235, 235);
-            this._btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(245, 245, 245);
-            this._btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnDelete.Font = new System.Drawing.Font("Segoe UI Emoji", 11F);
-            this._btnDelete.ForeColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            this._btnDelete.Location = new System.Drawing.Point(90, 0);
-            this._btnDelete.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this._btnDelete.Name = "_btnDelete";
-            this._btnDelete.Padding = System.Windows.Forms.Padding.Empty;
-            this._btnDelete.Size = new System.Drawing.Size(40, 36);
-            this._btnDelete.TabIndex = 2;
-            this._btnDelete.TabStop = false;
-            this._btnDelete.Text = "🗑️";
-            this._btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this._btnDelete.UseVisualStyleBackColor = false;
-            this._toolTip.SetToolTip(this._btnDelete, "Eliminar");
-
-            //
+            // 
+            _btnDelete.BackColor = Color.White;
+            _btnDelete.Cursor = Cursors.Hand;
+            _btnDelete.FlatAppearance.BorderColor = Color.FromArgb(220, 220, 220);
+            _btnDelete.FlatAppearance.MouseDownBackColor = Color.FromArgb(235, 235, 235);
+            _btnDelete.FlatAppearance.MouseOverBackColor = Color.FromArgb(245, 245, 245);
+            _btnDelete.FlatStyle = FlatStyle.Flat;
+            _btnDelete.Font = new Font("Segoe UI Emoji", 11F);
+            _btnDelete.ForeColor = Color.FromArgb(30, 30, 30);
+            _btnDelete.Location = new Point(90, 0);
+            _btnDelete.Margin = new Padding(2, 0, 2, 0);
+            _btnDelete.Name = "_btnDelete";
+            _btnDelete.Size = new Size(40, 36);
+            _btnDelete.TabIndex = 2;
+            _btnDelete.TabStop = false;
+            _btnDelete.Text = "🗑️";
+            _toolTip.SetToolTip(_btnDelete, "Eliminar");
+            _btnDelete.UseVisualStyleBackColor = false;
+            // 
             // _separatorPanel
-            //
-            this._separatorPanel.BackColor = System.Drawing.Color.FromArgb(220, 220, 220);
-            this._separatorPanel.Location = new System.Drawing.Point(142, 4);
-            this._separatorPanel.Margin = new System.Windows.Forms.Padding(10, 4, 10, 4);
-            this._separatorPanel.Name = "_separatorPanel";
-            this._separatorPanel.Size = new System.Drawing.Size(1, 28);
-            this._separatorPanel.TabIndex = 3;
-
-            //
+            // 
+            _separatorPanel.BackColor = Color.FromArgb(220, 220, 220);
+            _separatorPanel.Location = new Point(142, 4);
+            _separatorPanel.Margin = new Padding(10, 4, 10, 4);
+            _separatorPanel.Name = "_separatorPanel";
+            _separatorPanel.Size = new Size(1, 28);
+            _separatorPanel.TabIndex = 3;
+            // 
             // _btnToInProgress
-            //
-            this._btnToInProgress.BackColor = System.Drawing.Color.White;
-            this._btnToInProgress.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._btnToInProgress.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(220, 220, 220);
-            this._btnToInProgress.FlatAppearance.BorderSize = 1;
-            this._btnToInProgress.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(235, 235, 235);
-            this._btnToInProgress.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(245, 245, 245);
-            this._btnToInProgress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnToInProgress.Font = new System.Drawing.Font("Segoe UI Emoji", 11F);
-            this._btnToInProgress.ForeColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            this._btnToInProgress.Location = new System.Drawing.Point(165, 0);
-            this._btnToInProgress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this._btnToInProgress.Name = "_btnToInProgress";
-            this._btnToInProgress.Padding = System.Windows.Forms.Padding.Empty;
-            this._btnToInProgress.Size = new System.Drawing.Size(40, 36);
-            this._btnToInProgress.TabIndex = 4;
-            this._btnToInProgress.TabStop = false;
-            this._btnToInProgress.Text = "⏳";
-            this._btnToInProgress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this._btnToInProgress.UseVisualStyleBackColor = false;
-            this._toolTip.SetToolTip(this._btnToInProgress, "Pasar a En proceso");
-
-            //
+            // 
+            _btnToInProgress.BackColor = Color.White;
+            _btnToInProgress.Cursor = Cursors.Hand;
+            _btnToInProgress.FlatAppearance.BorderColor = Color.FromArgb(220, 220, 220);
+            _btnToInProgress.FlatAppearance.MouseDownBackColor = Color.FromArgb(235, 235, 235);
+            _btnToInProgress.FlatAppearance.MouseOverBackColor = Color.FromArgb(245, 245, 245);
+            _btnToInProgress.FlatStyle = FlatStyle.Flat;
+            _btnToInProgress.Font = new Font("Segoe UI Emoji", 11F);
+            _btnToInProgress.ForeColor = Color.FromArgb(30, 30, 30);
+            _btnToInProgress.Location = new Point(155, 0);
+            _btnToInProgress.Margin = new Padding(2, 0, 2, 0);
+            _btnToInProgress.Name = "_btnToInProgress";
+            _btnToInProgress.Size = new Size(40, 36);
+            _btnToInProgress.TabIndex = 4;
+            _btnToInProgress.TabStop = false;
+            _btnToInProgress.Text = "⏳";
+            _toolTip.SetToolTip(_btnToInProgress, "Pasar a En proceso");
+            _btnToInProgress.UseVisualStyleBackColor = false;
+            // 
             // _btnToDone
-            //
-            this._btnToDone.BackColor = System.Drawing.Color.White;
-            this._btnToDone.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._btnToDone.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(220, 220, 220);
-            this._btnToDone.FlatAppearance.BorderSize = 1;
-            this._btnToDone.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(235, 235, 235);
-            this._btnToDone.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(245, 245, 245);
-            this._btnToDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnToDone.Font = new System.Drawing.Font("Segoe UI Emoji", 11F);
-            this._btnToDone.ForeColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            this._btnToDone.Location = new System.Drawing.Point(209, 0);
-            this._btnToDone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this._btnToDone.Name = "_btnToDone";
-            this._btnToDone.Padding = System.Windows.Forms.Padding.Empty;
-            this._btnToDone.Size = new System.Drawing.Size(40, 36);
-            this._btnToDone.TabIndex = 5;
-            this._btnToDone.TabStop = false;
-            this._btnToDone.Text = "✅";
-            this._btnToDone.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this._btnToDone.UseVisualStyleBackColor = false;
-            this._toolTip.SetToolTip(this._btnToDone, "Finalizar (Pasar a Done)");
-
-            //
+            // 
+            _btnToDone.BackColor = Color.White;
+            _btnToDone.Cursor = Cursors.Hand;
+            _btnToDone.FlatAppearance.BorderColor = Color.FromArgb(220, 220, 220);
+            _btnToDone.FlatAppearance.MouseDownBackColor = Color.FromArgb(235, 235, 235);
+            _btnToDone.FlatAppearance.MouseOverBackColor = Color.FromArgb(245, 245, 245);
+            _btnToDone.FlatStyle = FlatStyle.Flat;
+            _btnToDone.Font = new Font("Segoe UI Emoji", 11F);
+            _btnToDone.ForeColor = Color.FromArgb(30, 30, 30);
+            _btnToDone.Location = new Point(199, 0);
+            _btnToDone.Margin = new Padding(2, 0, 2, 0);
+            _btnToDone.Name = "_btnToDone";
+            _btnToDone.Size = new Size(40, 36);
+            _btnToDone.TabIndex = 5;
+            _btnToDone.TabStop = false;
+            _btnToDone.Text = "✅";
+            _toolTip.SetToolTip(_btnToDone, "Finalizar (Pasar a Done)");
+            _btnToDone.UseVisualStyleBackColor = false;
+            // 
             // _btnRefresh
-            //
-            this._btnRefresh.BackColor = System.Drawing.Color.White;
-            this._btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._btnRefresh.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(220, 220, 220);
-            this._btnRefresh.FlatAppearance.BorderSize = 1;
-            this._btnRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(235, 235, 235);
-            this._btnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(245, 245, 245);
-            this._btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnRefresh.Font = new System.Drawing.Font("Segoe UI Emoji", 11F);
-            this._btnRefresh.ForeColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            this._btnRefresh.Location = new System.Drawing.Point(253, 0);
-            this._btnRefresh.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this._btnRefresh.Name = "_btnRefresh";
-            this._btnRefresh.Padding = System.Windows.Forms.Padding.Empty;
-            this._btnRefresh.Size = new System.Drawing.Size(40, 36);
-            this._btnRefresh.TabIndex = 6;
-            this._btnRefresh.TabStop = false;
-            this._btnRefresh.Text = "🔄";
-            this._btnRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this._btnRefresh.UseVisualStyleBackColor = false;
-            this._toolTip.SetToolTip(this._btnRefresh, "Refrescar");
-
-            //
+            // 
+            _btnRefresh.BackColor = Color.White;
+            _btnRefresh.Cursor = Cursors.Hand;
+            _btnRefresh.FlatAppearance.BorderColor = Color.FromArgb(220, 220, 220);
+            _btnRefresh.FlatAppearance.MouseDownBackColor = Color.FromArgb(235, 235, 235);
+            _btnRefresh.FlatAppearance.MouseOverBackColor = Color.FromArgb(245, 245, 245);
+            _btnRefresh.FlatStyle = FlatStyle.Flat;
+            _btnRefresh.Font = new Font("Segoe UI Emoji", 11F);
+            _btnRefresh.ForeColor = Color.FromArgb(30, 30, 30);
+            _btnRefresh.Location = new Point(243, 0);
+            _btnRefresh.Margin = new Padding(2, 0, 2, 0);
+            _btnRefresh.Name = "_btnRefresh";
+            _btnRefresh.Size = new Size(40, 36);
+            _btnRefresh.TabIndex = 6;
+            _btnRefresh.TabStop = false;
+            _btnRefresh.Text = "🔄";
+            _toolTip.SetToolTip(_btnRefresh, "Refrescar");
+            _btnRefresh.UseVisualStyleBackColor = false;
+            // 
+            // _navActionsUser
+            // 
+            _navActionsUser.AutoSize = true;
+            _navActionsUser.Controls.Add(_btnNewUser);
+            _navActionsUser.Controls.Add(_btnEditUser);
+            _navActionsUser.Controls.Add(_btnDeleteUser);
+            _navActionsUser.Controls.Add(_btnRefreshUser);
+            _navActionsUser.Dock = DockStyle.Fill;
+            _navActionsUser.Location = new Point(890, 0);
+            _navActionsUser.Margin = new Padding(0);
+            _navActionsUser.Name = "_navActionsUser";
+            _navActionsUser.Size = new Size(176, 36);
+            _navActionsUser.TabIndex = 2;
+            _navActionsUser.Visible = false;
+            _navActionsUser.WrapContents = false;
+            // 
+            // _btnNewUser
+            // 
+            _btnNewUser.BackColor = Color.White;
+            _btnNewUser.Cursor = Cursors.Hand;
+            _btnNewUser.FlatAppearance.BorderColor = Color.FromArgb(220, 220, 220);
+            _btnNewUser.FlatAppearance.MouseDownBackColor = Color.FromArgb(235, 235, 235);
+            _btnNewUser.FlatAppearance.MouseOverBackColor = Color.FromArgb(245, 245, 245);
+            _btnNewUser.FlatStyle = FlatStyle.Flat;
+            _btnNewUser.Font = new Font("Segoe UI Emoji", 11F);
+            _btnNewUser.ForeColor = Color.FromArgb(30, 30, 30);
+            _btnNewUser.Location = new Point(2, 0);
+            _btnNewUser.Margin = new Padding(2, 0, 2, 0);
+            _btnNewUser.Name = "_btnNewUser";
+            _btnNewUser.Size = new Size(40, 36);
+            _btnNewUser.TabIndex = 0;
+            _btnNewUser.TabStop = false;
+            _btnNewUser.Text = "➕";
+            _toolTip.SetToolTip(_btnNewUser, "Crear usuario");
+            _btnNewUser.UseVisualStyleBackColor = false;
+            // 
+            // _btnEditUser
+            // 
+            _btnEditUser.BackColor = Color.White;
+            _btnEditUser.Cursor = Cursors.Hand;
+            _btnEditUser.FlatAppearance.BorderColor = Color.FromArgb(220, 220, 220);
+            _btnEditUser.FlatAppearance.MouseDownBackColor = Color.FromArgb(235, 235, 235);
+            _btnEditUser.FlatAppearance.MouseOverBackColor = Color.FromArgb(245, 245, 245);
+            _btnEditUser.FlatStyle = FlatStyle.Flat;
+            _btnEditUser.Font = new Font("Segoe UI Emoji", 11F);
+            _btnEditUser.ForeColor = Color.FromArgb(30, 30, 30);
+            _btnEditUser.Location = new Point(46, 0);
+            _btnEditUser.Margin = new Padding(2, 0, 2, 0);
+            _btnEditUser.Name = "_btnEditUser";
+            _btnEditUser.Size = new Size(40, 36);
+            _btnEditUser.TabIndex = 1;
+            _btnEditUser.TabStop = false;
+            _btnEditUser.Text = "✏️";
+            _toolTip.SetToolTip(_btnEditUser, "Editar usuario");
+            _btnEditUser.UseVisualStyleBackColor = false;
+            // 
+            // _btnDeleteUser
+            // 
+            _btnDeleteUser.BackColor = Color.White;
+            _btnDeleteUser.Cursor = Cursors.Hand;
+            _btnDeleteUser.FlatAppearance.BorderColor = Color.FromArgb(220, 220, 220);
+            _btnDeleteUser.FlatAppearance.MouseDownBackColor = Color.FromArgb(235, 235, 235);
+            _btnDeleteUser.FlatAppearance.MouseOverBackColor = Color.FromArgb(245, 245, 245);
+            _btnDeleteUser.FlatStyle = FlatStyle.Flat;
+            _btnDeleteUser.Font = new Font("Segoe UI Emoji", 11F);
+            _btnDeleteUser.ForeColor = Color.FromArgb(30, 30, 30);
+            _btnDeleteUser.Location = new Point(90, 0);
+            _btnDeleteUser.Margin = new Padding(2, 0, 2, 0);
+            _btnDeleteUser.Name = "_btnDeleteUser";
+            _btnDeleteUser.Size = new Size(40, 36);
+            _btnDeleteUser.TabIndex = 2;
+            _btnDeleteUser.TabStop = false;
+            _btnDeleteUser.Text = "🗑️";
+            _toolTip.SetToolTip(_btnDeleteUser, "Eliminar usuario");
+            _btnDeleteUser.UseVisualStyleBackColor = false;
+            // 
+            // _btnRefreshUser
+            // 
+            _btnRefreshUser.BackColor = Color.White;
+            _btnRefreshUser.Cursor = Cursors.Hand;
+            _btnRefreshUser.FlatAppearance.BorderColor = Color.FromArgb(220, 220, 220);
+            _btnRefreshUser.FlatAppearance.MouseDownBackColor = Color.FromArgb(235, 235, 235);
+            _btnRefreshUser.FlatAppearance.MouseOverBackColor = Color.FromArgb(245, 245, 245);
+            _btnRefreshUser.FlatStyle = FlatStyle.Flat;
+            _btnRefreshUser.Font = new Font("Segoe UI Emoji", 11F);
+            _btnRefreshUser.ForeColor = Color.FromArgb(30, 30, 30);
+            _btnRefreshUser.Location = new Point(134, 0);
+            _btnRefreshUser.Margin = new Padding(2, 0, 2, 0);
+            _btnRefreshUser.Name = "_btnRefreshUser";
+            _btnRefreshUser.Size = new Size(40, 36);
+            _btnRefreshUser.TabIndex = 3;
+            _btnRefreshUser.TabStop = false;
+            _btnRefreshUser.Text = "🔄";
+            _toolTip.SetToolTip(_btnRefreshUser, "Refrescar usuarios");
+            _btnRefreshUser.UseVisualStyleBackColor = false;
+            // 
             // _bodyLayout
-            //
-            this._bodyLayout.BackColor = System.Drawing.Color.White;
-            this._bodyLayout.ColumnCount = 2;
-            this._bodyLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
-            this._bodyLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._bodyLayout.Controls.Add(this._sidebar, 0, 0);
-            this._bodyLayout.Controls.Add(this._contentWrapper, 1, 0);
-            this._bodyLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._bodyLayout.Location = new System.Drawing.Point(0, 62);
-            this._bodyLayout.Margin = System.Windows.Forms.Padding.Empty;
-            this._bodyLayout.Name = "_bodyLayout";
-            this._bodyLayout.Padding = System.Windows.Forms.Padding.Empty;
-            this._bodyLayout.RowCount = 1;
-            this._bodyLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._bodyLayout.Size = new System.Drawing.Size(1100, 588);
-            this._bodyLayout.TabIndex = 1;
-
-            //
+            // 
+            _bodyLayout.BackColor = Color.White;
+            _bodyLayout.ColumnCount = 2;
+            _bodyLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 220F));
+            _bodyLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            _bodyLayout.Controls.Add(_sidebar, 0, 0);
+            _bodyLayout.Controls.Add(_contentWrapper, 1, 0);
+            _bodyLayout.Dock = DockStyle.Fill;
+            _bodyLayout.Location = new Point(0, 62);
+            _bodyLayout.Margin = new Padding(0);
+            _bodyLayout.Name = "_bodyLayout";
+            _bodyLayout.RowCount = 1;
+            _bodyLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            _bodyLayout.Size = new Size(1100, 588);
+            _bodyLayout.TabIndex = 1;
+            // 
             // _sidebar
-            //
-            this._sidebar.BackColor = System.Drawing.Color.FromArgb(24, 28, 36);
-            this._sidebar.Controls.Add(this._sideMenu);
-            this._sidebar.Controls.Add(this._sideHeader);
-            this._sidebar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._sidebar.Location = new System.Drawing.Point(0, 0);
-            this._sidebar.Margin = System.Windows.Forms.Padding.Empty;
-            this._sidebar.Name = "_sidebar";
-            this._sidebar.Padding = new System.Windows.Forms.Padding(12);
-            this._sidebar.Size = new System.Drawing.Size(220, 588);
-            this._sidebar.TabIndex = 0;
-
-            //
-            // _sideHeader
-            //
-            this._sideHeader.Controls.Add(this._lblMenu);
-            this._sideHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this._sideHeader.Location = new System.Drawing.Point(12, 12);
-            this._sideHeader.Name = "_sideHeader";
-            this._sideHeader.Size = new System.Drawing.Size(196, 56);
-            this._sideHeader.TabIndex = 0;
-
-            //
-            // _lblMenu
-            //
-            this._lblMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._lblMenu.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this._lblMenu.ForeColor = System.Drawing.Color.White;
-            this._lblMenu.Location = new System.Drawing.Point(0, 0);
-            this._lblMenu.Name = "_lblMenu";
-            this._lblMenu.Size = new System.Drawing.Size(196, 56);
-            this._lblMenu.TabIndex = 0;
-            this._lblMenu.Text = "MENU";
-            this._lblMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
-            //
+            // 
+            _sidebar.BackColor = Color.FromArgb(24, 28, 36);
+            _sidebar.Controls.Add(_sideMenu);
+            _sidebar.Controls.Add(_sideHeader);
+            _sidebar.Dock = DockStyle.Fill;
+            _sidebar.Location = new Point(0, 0);
+            _sidebar.Margin = new Padding(0);
+            _sidebar.Name = "_sidebar";
+            _sidebar.Padding = new Padding(12);
+            _sidebar.Size = new Size(220, 588);
+            _sidebar.TabIndex = 0;
+            // 
             // _sideMenu
-            //
-            this._sideMenu.AutoScroll = true;
-            //this._sideMenu.Controls.Add(this._btnDashboard);
-            this._sideMenu.Controls.Add(this._btnTareas);
-            this._sideMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._sideMenu.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this._sideMenu.Location = new System.Drawing.Point(12, 68);
-            this._sideMenu.Name = "_sideMenu";
-            this._sideMenu.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this._sideMenu.Size = new System.Drawing.Size(196, 508);
-            this._sideMenu.TabIndex = 1;
-            this._sideMenu.WrapContents = false;
-
-            //
-            // _btnDashboard
-            //
-            this._btnDashboard.BackColor = System.Drawing.Color.FromArgb(32, 37, 48);
-            this._btnDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._btnDashboard.FlatAppearance.BorderSize = 0;
-            this._btnDashboard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(54, 62, 80);
-            this._btnDashboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(45, 52, 66);
-            this._btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnDashboard.ForeColor = System.Drawing.Color.White;
-            this._btnDashboard.Location = new System.Drawing.Point(0, 10);
-            this._btnDashboard.Margin = System.Windows.Forms.Padding.Empty;
-            this._btnDashboard.Name = "_btnDashboard";
-            this._btnDashboard.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this._btnDashboard.Size = new System.Drawing.Size(180, 40);
-            this._btnDashboard.TabIndex = 0;
-            this._btnDashboard.TabStop = false;
-            this._btnDashboard.Text = "Dashboard";
-            this._btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this._btnDashboard.UseVisualStyleBackColor = false;
-
-            //
+            // 
+            _sideMenu.AutoScroll = true;
+            _sideMenu.Controls.Add(_btnTareas);
+            _sideMenu.Controls.Add(_btnUsuarios);
+            _sideMenu.Dock = DockStyle.Fill;
+            _sideMenu.FlowDirection = FlowDirection.TopDown;
+            _sideMenu.Location = new Point(12, 68);
+            _sideMenu.Name = "_sideMenu";
+            _sideMenu.Padding = new Padding(0, 10, 0, 0);
+            _sideMenu.Size = new Size(196, 508);
+            _sideMenu.TabIndex = 1;
+            _sideMenu.WrapContents = false;
+            // 
             // _btnTareas
-            //
-            this._btnTareas.BackColor = System.Drawing.Color.FromArgb(32, 37, 48);
-            this._btnTareas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._btnTareas.FlatAppearance.BorderSize = 0;
-            this._btnTareas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(54, 62, 80);
-            this._btnTareas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(45, 52, 66);
-            this._btnTareas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnTareas.ForeColor = System.Drawing.Color.White;
-            this._btnTareas.Location = new System.Drawing.Point(0, 50);
-            this._btnTareas.Margin = System.Windows.Forms.Padding.Empty;
-            this._btnTareas.Name = "_btnTareas";
-            this._btnTareas.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this._btnTareas.Size = new System.Drawing.Size(180, 40);
-            this._btnTareas.TabIndex = 1;
-            this._btnTareas.TabStop = false;
-            this._btnTareas.Text = "Tareas";
-            this._btnTareas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this._btnTareas.UseVisualStyleBackColor = false;
-
-            //
+            // 
+            _btnTareas.BackColor = Color.FromArgb(32, 37, 48);
+            _btnTareas.Cursor = Cursors.Hand;
+            _btnTareas.FlatAppearance.BorderSize = 0;
+            _btnTareas.FlatAppearance.MouseDownBackColor = Color.FromArgb(54, 62, 80);
+            _btnTareas.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 52, 66);
+            _btnTareas.FlatStyle = FlatStyle.Flat;
+            _btnTareas.ForeColor = Color.White;
+            _btnTareas.Location = new Point(0, 10);
+            _btnTareas.Margin = new Padding(0);
+            _btnTareas.Name = "_btnTareas";
+            _btnTareas.Padding = new Padding(12, 0, 0, 0);
+            _btnTareas.Size = new Size(180, 40);
+            _btnTareas.TabIndex = 1;
+            _btnTareas.TabStop = false;
+            _btnTareas.Text = "Tareas";
+            _btnTareas.TextAlign = ContentAlignment.MiddleLeft;
+            _btnTareas.UseVisualStyleBackColor = false;
+            // 
+            // _btnUsuarios
+            // 
+            _btnUsuarios.BackColor = Color.FromArgb(32, 37, 48);
+            _btnUsuarios.Cursor = Cursors.Hand;
+            _btnUsuarios.FlatAppearance.BorderSize = 0;
+            _btnUsuarios.FlatAppearance.MouseDownBackColor = Color.FromArgb(54, 62, 80);
+            _btnUsuarios.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 52, 66);
+            _btnUsuarios.FlatStyle = FlatStyle.Flat;
+            _btnUsuarios.ForeColor = Color.White;
+            _btnUsuarios.Location = new Point(0, 50);
+            _btnUsuarios.Margin = new Padding(0);
+            _btnUsuarios.Name = "_btnUsuarios";
+            _btnUsuarios.Padding = new Padding(12, 0, 0, 0);
+            _btnUsuarios.Size = new Size(180, 40);
+            _btnUsuarios.TabIndex = 2;
+            _btnUsuarios.TabStop = false;
+            _btnUsuarios.Text = "Usuarios";
+            _btnUsuarios.TextAlign = ContentAlignment.MiddleLeft;
+            _btnUsuarios.UseVisualStyleBackColor = false;
+            // 
+            // _sideHeader
+            // 
+            _sideHeader.Controls.Add(_lblMenu);
+            _sideHeader.Dock = DockStyle.Top;
+            _sideHeader.Location = new Point(12, 12);
+            _sideHeader.Name = "_sideHeader";
+            _sideHeader.Size = new Size(196, 56);
+            _sideHeader.TabIndex = 0;
+            // 
+            // _lblMenu
+            // 
+            _lblMenu.Dock = DockStyle.Fill;
+            _lblMenu.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            _lblMenu.ForeColor = Color.White;
+            _lblMenu.Location = new Point(0, 0);
+            _lblMenu.Name = "_lblMenu";
+            _lblMenu.Size = new Size(196, 56);
+            _lblMenu.TabIndex = 0;
+            _lblMenu.Text = "MENU";
+            _lblMenu.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // _contentWrapper
-            //
-            this._contentWrapper.BackColor = System.Drawing.Color.White;
-            this._contentWrapper.ColumnCount = 1;
-            this._contentWrapper.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._contentWrapper.Controls.Add(this._contentSeparator, 0, 0);
-            this._contentWrapper.Controls.Add(this._contentLayout, 0, 1);
-            this._contentWrapper.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._contentWrapper.Location = new System.Drawing.Point(220, 0);
-            this._contentWrapper.Margin = System.Windows.Forms.Padding.Empty;
-            this._contentWrapper.Name = "_contentWrapper";
-            this._contentWrapper.RowCount = 2;
-            this._contentWrapper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this._contentWrapper.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._contentWrapper.Size = new System.Drawing.Size(880, 588);
-            this._contentWrapper.TabIndex = 1;
-
-            //
+            // 
+            _contentWrapper.BackColor = Color.White;
+            _contentWrapper.ColumnCount = 1;
+            _contentWrapper.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            _contentWrapper.Controls.Add(_contentSeparator, 0, 0);
+            _contentWrapper.Controls.Add(_contentLayout, 0, 1);
+            _contentWrapper.Controls.Add(_userContentLayout, 0, 2);
+            _contentWrapper.Dock = DockStyle.Fill;
+            _contentWrapper.Location = new Point(220, 0);
+            _contentWrapper.Margin = new Padding(0);
+            _contentWrapper.Name = "_contentWrapper";
+            _contentWrapper.RowCount = 3;
+            _contentWrapper.RowStyles.Add(new RowStyle(SizeType.Absolute, 1F));
+            _contentWrapper.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            _contentWrapper.RowStyles.Add(new RowStyle(SizeType.Percent, 0F));
+            _contentWrapper.Size = new Size(880, 588);
+            _contentWrapper.TabIndex = 1;
+            // 
             // _contentSeparator
-            //
-            this._contentSeparator.BackColor = System.Drawing.Color.FromArgb(230, 230, 230);
-            this._contentSeparator.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._contentSeparator.Location = new System.Drawing.Point(0, 0);
-            this._contentSeparator.Margin = System.Windows.Forms.Padding.Empty;
-            this._contentSeparator.Name = "_contentSeparator";
-            this._contentSeparator.Size = new System.Drawing.Size(880, 1);
-            this._contentSeparator.TabIndex = 0;
-
-            //
+            // 
+            _contentSeparator.BackColor = Color.FromArgb(230, 230, 230);
+            _contentSeparator.Dock = DockStyle.Fill;
+            _contentSeparator.Location = new Point(0, 0);
+            _contentSeparator.Margin = new Padding(0);
+            _contentSeparator.Name = "_contentSeparator";
+            _contentSeparator.Size = new Size(880, 1);
+            _contentSeparator.TabIndex = 0;
+            // 
             // _contentLayout
-            //
-            this._contentLayout.BackColor = System.Drawing.Color.White;
-            this._contentLayout.ColumnCount = 1;
-            this._contentLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._contentLayout.Controls.Add(this._filtersLayout, 0, 0);
-            this._contentLayout.Controls.Add(this._gridCard, 0, 1);
-            this._contentLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._contentLayout.Location = new System.Drawing.Point(0, 1);
-            this._contentLayout.Margin = System.Windows.Forms.Padding.Empty;
-            this._contentLayout.Name = "_contentLayout";
-            this._contentLayout.Padding = new System.Windows.Forms.Padding(12);
-            this._contentLayout.RowCount = 2;
-            this._contentLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize));
-            this._contentLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._contentLayout.Size = new System.Drawing.Size(880, 587);
-            this._contentLayout.TabIndex = 1;
-
-            //
+            // 
+            _contentLayout.BackColor = Color.White;
+            _contentLayout.ColumnCount = 1;
+            _contentLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            _contentLayout.Controls.Add(_filtersLayout, 0, 0);
+            _contentLayout.Controls.Add(_gridCard, 0, 1);
+            _contentLayout.Dock = DockStyle.Fill;
+            _contentLayout.Location = new Point(0, 1);
+            _contentLayout.Margin = new Padding(0);
+            _contentLayout.Name = "_contentLayout";
+            _contentLayout.Padding = new Padding(12);
+            _contentLayout.RowCount = 2;
+            _contentLayout.RowStyles.Add(new RowStyle());
+            _contentLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            _contentLayout.Size = new Size(880, 587);
+            _contentLayout.TabIndex = 1;
+            // 
             // _filtersLayout
-            //
-            this._filtersLayout.AutoSize = true;
-            this._filtersLayout.BackColor = System.Drawing.Color.White;
-            this._filtersLayout.ColumnCount = 4;
-            this._filtersLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this._filtersLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this._filtersLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this._filtersLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this._filtersLayout.Controls.Add(this._txtSearch, 0, 0);
-            this._filtersLayout.Controls.Add(this._cmbStatus, 1, 0);
-            this._filtersLayout.Controls.Add(this._cmbPriority, 2, 0);
-            this._filtersLayout.Controls.Add(this._txtUser, 3, 0);
-            this._filtersLayout.Dock = System.Windows.Forms.DockStyle.Top;
-            this._filtersLayout.Location = new System.Drawing.Point(12, 12);
-            this._filtersLayout.Margin = System.Windows.Forms.Padding.Empty;
-            this._filtersLayout.Name = "_filtersLayout";
-            this._filtersLayout.RowCount = 1;
-            this._filtersLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize));
-            this._filtersLayout.Size = new System.Drawing.Size(856, 29);
-            this._filtersLayout.TabIndex = 0;
-
-            //
+            // 
+            _filtersLayout.AutoSize = true;
+            _filtersLayout.BackColor = Color.White;
+            _filtersLayout.ColumnCount = 4;
+            _filtersLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            _filtersLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            _filtersLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            _filtersLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            _filtersLayout.Controls.Add(_txtSearch, 0, 0);
+            _filtersLayout.Controls.Add(_cmbStatus, 1, 0);
+            _filtersLayout.Controls.Add(_cmbPriority, 2, 0);
+            _filtersLayout.Controls.Add(_txtUser, 3, 0);
+            _filtersLayout.Dock = DockStyle.Top;
+            _filtersLayout.Location = new Point(12, 12);
+            _filtersLayout.Margin = new Padding(0);
+            _filtersLayout.Name = "_filtersLayout";
+            _filtersLayout.RowCount = 1;
+            _filtersLayout.RowStyles.Add(new RowStyle());
+            _filtersLayout.Size = new Size(856, 31);
+            _filtersLayout.TabIndex = 0;
+            // 
             // _txtSearch
-            //
-            this._txtSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._txtSearch.Location = new System.Drawing.Point(3, 3);
-            this._txtSearch.Name = "_txtSearch";
-            this._txtSearch.PlaceholderText = "Buscar por descripción...";
-            this._txtSearch.Size = new System.Drawing.Size(336, 23);
-            this._txtSearch.TabIndex = 0;
-
-            //
+            // 
+            _txtSearch.Dock = DockStyle.Fill;
+            _txtSearch.Location = new Point(3, 3);
+            _txtSearch.Name = "_txtSearch";
+            _txtSearch.PlaceholderText = "Buscar por descripción...";
+            _txtSearch.Size = new Size(336, 25);
+            _txtSearch.TabIndex = 0;
+            // 
             // _cmbStatus
-            //
-            this._cmbStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this._cmbStatus.FormattingEnabled = true;
-            this._cmbStatus.Location = new System.Drawing.Point(345, 3);
-            this._cmbStatus.Name = "_cmbStatus";
-            this._cmbStatus.Size = new System.Drawing.Size(165, 23);
-            this._cmbStatus.TabIndex = 1;
-
-            //
+            // 
+            _cmbStatus.Dock = DockStyle.Fill;
+            _cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
+            _cmbStatus.FormattingEnabled = true;
+            _cmbStatus.Location = new Point(345, 3);
+            _cmbStatus.Name = "_cmbStatus";
+            _cmbStatus.Size = new Size(165, 25);
+            _cmbStatus.TabIndex = 1;
+            // 
             // _cmbPriority
-            //
-            this._cmbPriority.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._cmbPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this._cmbPriority.FormattingEnabled = true;
-            this._cmbPriority.Location = new System.Drawing.Point(516, 3);
-            this._cmbPriority.Name = "_cmbPriority";
-            this._cmbPriority.Size = new System.Drawing.Size(165, 23);
-            this._cmbPriority.TabIndex = 2;
-
-            //
+            // 
+            _cmbPriority.Dock = DockStyle.Fill;
+            _cmbPriority.DropDownStyle = ComboBoxStyle.DropDownList;
+            _cmbPriority.FormattingEnabled = true;
+            _cmbPriority.Location = new Point(516, 3);
+            _cmbPriority.Name = "_cmbPriority";
+            _cmbPriority.Size = new Size(165, 25);
+            _cmbPriority.TabIndex = 2;
+            // 
             // _txtUser
-            //
-            this._txtUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._txtUser.Location = new System.Drawing.Point(687, 3);
-            this._txtUser.Name = "_txtUser";
-            this._txtUser.PlaceholderText = "Usuario";
-            this._txtUser.Size = new System.Drawing.Size(166, 23);
-            this._txtUser.TabIndex = 3;
-
-            //
+            // 
+            _txtUser.Dock = DockStyle.Fill;
+            _txtUser.Location = new Point(687, 3);
+            _txtUser.Name = "_txtUser";
+            _txtUser.PlaceholderText = "Usuario";
+            _txtUser.Size = new Size(166, 25);
+            _txtUser.TabIndex = 3;
+            // 
             // _gridCard
-            //
-            this._gridCard.BackColor = System.Drawing.Color.White;
-            this._gridCard.Controls.Add(this._grid);
-            this._gridCard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._gridCard.Location = new System.Drawing.Point(12, 51);
-            this._gridCard.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this._gridCard.Name = "_gridCard";
-            this._gridCard.Padding = new System.Windows.Forms.Padding(10);
-            this._gridCard.Size = new System.Drawing.Size(856, 524);
-            this._gridCard.TabIndex = 1;
-
-            //
+            // 
+            _gridCard.BackColor = Color.White;
+            _gridCard.Controls.Add(_grid);
+            _gridCard.Dock = DockStyle.Fill;
+            _gridCard.Location = new Point(12, 53);
+            _gridCard.Margin = new Padding(0, 10, 0, 0);
+            _gridCard.Name = "_gridCard";
+            _gridCard.Padding = new Padding(10);
+            _gridCard.Size = new Size(856, 522);
+            _gridCard.TabIndex = 1;
+            // 
             // _grid
-            //
-            this._grid.AllowUserToAddRows = false;
-            this._grid.AllowUserToDeleteRows = false;
-            this._grid.AllowUserToResizeRows = false;
+            // 
             this._grid.AutoGenerateColumns = false;
-            this._grid.BackgroundColor = System.Drawing.Color.White;
-            this._grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this._grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this._grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(248, 249, 251);
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(60, 60, 60);
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this._grid.ColumnHeadersHeight = 44;
-            this._grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this._grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
                 this._colDescription,
                 this._colUser,
@@ -597,29 +639,181 @@
                 this._colPriority,
                 this._colDue,
                 this._colNotes});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(22, 22, 22);
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10, 6, 10, 6);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(232, 240, 254);
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(22, 22, 22);
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._grid.DefaultCellStyle = dataGridViewCellStyle2;
-            this._grid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._grid.EnableHeadersVisualStyles = false;
-            this._grid.GridColor = System.Drawing.Color.FromArgb(235, 238, 242);
-            this._grid.Location = new System.Drawing.Point(10, 10);
-            this._grid.MultiSelect = false;
-            this._grid.Name = "_grid";
-            this._grid.ReadOnly = true;
-            this._grid.RowHeadersVisible = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(253, 253, 254);
-            this._grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this._grid.RowTemplate.Height = 44;
-            this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._grid.Size = new System.Drawing.Size(836, 504);
-            this._grid.TabIndex = 0;
+            _grid.AllowUserToAddRows = false;
+            _grid.AllowUserToDeleteRows = false;
+            _grid.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(253, 253, 254);
+            _grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            _grid.BackgroundColor = Color.White;
+            _grid.BorderStyle = BorderStyle.None;
+            _grid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            _grid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(248, 249, 251);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(60, 60, 60);
+            dataGridViewCellStyle2.Padding = new Padding(10, 0, 10, 0);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            _grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            _grid.ColumnHeadersHeight = 44;
+            _grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(22, 22, 22);
+            dataGridViewCellStyle3.Padding = new Padding(10, 6, 10, 6);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(232, 240, 254);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(22, 22, 22);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            _grid.DefaultCellStyle = dataGridViewCellStyle3;
+            _grid.Dock = DockStyle.Fill;
+            _grid.EnableHeadersVisualStyles = false;
+            _grid.GridColor = Color.FromArgb(235, 238, 242);
+            _grid.Location = new Point(10, 10);
+            _grid.MultiSelect = false;
+            _grid.Name = "_grid";
+            _grid.ReadOnly = true;
+            _grid.RowHeadersVisible = false;
+            _grid.RowTemplate.Height = 44;
+            _grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            _grid.Size = new Size(836, 502);
+            _grid.TabIndex = 0;
+            // 
+            // _userContentLayout
+            // 
+            _userContentLayout.BackColor = Color.White;
+            _userContentLayout.ColumnCount = 1;
+            _userContentLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            _userContentLayout.Controls.Add(_userFiltersLayout, 0, 0);
+            _userContentLayout.Controls.Add(_userGridCard, 0, 1);
+            _userContentLayout.Dock = DockStyle.Fill;
+            _userContentLayout.Location = new Point(0, 588);
+            _userContentLayout.Margin = new Padding(0);
+            _userContentLayout.Name = "_userContentLayout";
+            _userContentLayout.Padding = new Padding(12);
+            _userContentLayout.RowCount = 2;
+            _userContentLayout.RowStyles.Add(new RowStyle());
+            _userContentLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            _userContentLayout.Size = new Size(880, 1);
+            _userContentLayout.TabIndex = 2;
+            _userContentLayout.Visible = false;
+            // 
+            // _userFiltersLayout
+            // 
+            _userFiltersLayout.AutoSize = true;
+            _userFiltersLayout.BackColor = Color.White;
+            _userFiltersLayout.ColumnCount = 1;
+            _userFiltersLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            _userFiltersLayout.Controls.Add(_txtUserSearch, 0, 0);
+            _userFiltersLayout.Dock = DockStyle.Top;
+            _userFiltersLayout.Location = new Point(12, 12);
+            _userFiltersLayout.Margin = new Padding(0);
+            _userFiltersLayout.Name = "_userFiltersLayout";
+            _userFiltersLayout.RowCount = 1;
+            _userFiltersLayout.RowStyles.Add(new RowStyle());
+            _userFiltersLayout.Size = new Size(856, 31);
+            _userFiltersLayout.TabIndex = 0;
+            // 
+            // _txtUserSearch
+            // 
+            _txtUserSearch.Dock = DockStyle.Fill;
+            _txtUserSearch.Location = new Point(3, 3);
+            _txtUserSearch.Name = "_txtUserSearch";
+            _txtUserSearch.PlaceholderText = "Buscar por nombre...";
+            _txtUserSearch.Size = new Size(850, 25);
+            _txtUserSearch.TabIndex = 0;
+            // 
+            // _userGridCard
+            // 
+            _userGridCard.BackColor = Color.White;
+            _userGridCard.Controls.Add(_userGrid);
+            _userGridCard.Dock = DockStyle.Fill;
+            _userGridCard.Location = new Point(12, 53);
+            _userGridCard.Margin = new Padding(0, 10, 0, 0);
+            _userGridCard.Name = "_userGridCard";
+            _userGridCard.Padding = new Padding(10);
+            _userGridCard.Size = new Size(856, 1);
+            _userGridCard.TabIndex = 1;
+            // 
+            // _userGrid
+            // 
+            this._userGrid.AutoGenerateColumns = false;
+            _userGrid.AllowUserToAddRows = false;
+            _userGrid.AllowUserToDeleteRows = false;
+            _userGrid.AllowUserToResizeRows = false;
+            this._userGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+                this._colUserName,
+                this._colUserDescription,
+                this._colUserCreatedAt});
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(253, 253, 254);
+            _userGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            _userGrid.BackgroundColor = Color.White;
+            _userGrid.BorderStyle = BorderStyle.None;
+            _userGrid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            _userGrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(248, 249, 251);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(60, 60, 60);
+            dataGridViewCellStyle5.Padding = new Padding(10, 0, 10, 0);
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            _userGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            _userGrid.ColumnHeadersHeight = 44;
+            _userGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(22, 22, 22);
+            dataGridViewCellStyle6.Padding = new Padding(10, 6, 10, 6);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(232, 240, 254);
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(22, 22, 22);
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            _userGrid.DefaultCellStyle = dataGridViewCellStyle6;
+            _userGrid.Dock = DockStyle.Fill;
+            _userGrid.EnableHeadersVisualStyles = false;
+            _userGrid.GridColor = Color.FromArgb(235, 238, 242);
+            _userGrid.Location = new Point(10, 10);
+            _userGrid.MultiSelect = false;
+            _userGrid.Name = "_userGrid";
+            _userGrid.ReadOnly = true;
+            _userGrid.RowHeadersVisible = false;
+            _userGrid.RowTemplate.Height = 44;
+            _userGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            _userGrid.Size = new Size(836, 0);
+            _userGrid.TabIndex = 0;
+            // 
+            // _btnDashboard
+            // 
+            _btnDashboard.BackColor = Color.FromArgb(32, 37, 48);
+            _btnDashboard.Cursor = Cursors.Hand;
+            _btnDashboard.FlatAppearance.BorderSize = 0;
+            _btnDashboard.FlatAppearance.MouseDownBackColor = Color.FromArgb(54, 62, 80);
+            _btnDashboard.FlatAppearance.MouseOverBackColor = Color.FromArgb(45, 52, 66);
+            _btnDashboard.FlatStyle = FlatStyle.Flat;
+            _btnDashboard.ForeColor = Color.White;
+            _btnDashboard.Location = new Point(0, 10);
+            _btnDashboard.Margin = new Padding(0);
+            _btnDashboard.Name = "_btnDashboard";
+            _btnDashboard.Padding = new Padding(12, 0, 0, 0);
+            _btnDashboard.Size = new Size(180, 40);
+            _btnDashboard.TabIndex = 0;
+            _btnDashboard.TabStop = false;
+            _btnDashboard.Text = "Dashboard";
+            _btnDashboard.TextAlign = ContentAlignment.MiddleLeft;
+            _btnDashboard.UseVisualStyleBackColor = false;
+            // 
+            // _toolTip
+            // 
+            _toolTip.AutomaticDelay = 150;
+            _toolTip.AutoPopDelay = 5000;
+            _toolTip.InitialDelay = 150;
+            _toolTip.ReshowDelay = 100;
+            _toolTip.ShowAlways = true;
+
 
             //
             // _colDescription
@@ -680,34 +874,68 @@
             this._colNotes.ReadOnly = true;
 
             //
-            // TaskAppForm
+            // _colUserDescription
             //
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1100, 650);
-            this.Controls.Add(this._rootLayout);
-            this.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.Name = "TaskAppForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Administrador de tareas";
-            this._rootLayout.ResumeLayout(false);
-            this._bodyLayout.ResumeLayout(false);
-            this._contentWrapper.ResumeLayout(false);
-            this._contentLayout.ResumeLayout(false);
-            this._contentLayout.PerformLayout();
-            this._filtersLayout.ResumeLayout(false);
-            this._filtersLayout.PerformLayout();
-            this._topbar.ResumeLayout(false);
-            this._navLayout.ResumeLayout(false);
-            this._navLayout.PerformLayout();
-            this._navActions.ResumeLayout(false);
-            this._sidebar.ResumeLayout(false);
-            this._sideHeader.ResumeLayout(false);
-            this._sideMenu.ResumeLayout(false);
-            this._gridCard.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._grid)).EndInit();
-            this.ResumeLayout(false);
+            this._colUserDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this._colUserDescription.DataPropertyName = "Description";
+            this._colUserDescription.FillWeight = 40F;
+            this._colUserDescription.HeaderText = "Descripción";
+            this._colUserDescription.Name = "_colUserDescription";
+            this._colUserDescription.ReadOnly = true;
+
+            //
+            // _colUser
+            //
+            this._colUserName.DataPropertyName = "Name";
+            this._colUserName.HeaderText = "Usuario";
+            this._colUserName.Name = "_colUserName";
+            this._colUserName.ReadOnly = true;
+            this._colUserName.Width = 160;
+
+            //
+            // _colStatus
+            //
+            this._colUserCreatedAt.DataPropertyName = "CreatedAtUtc";
+            this._colUserCreatedAt.HeaderText = "Fecha de creación";
+            this._colUserCreatedAt.Name = "_colUserCreatedAt";
+            this._colUserCreatedAt.ReadOnly = true;
+            this._colUserCreatedAt.Width = 140;
+            // 
+            // TaskAppForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(1100, 650);
+            Controls.Add(_rootLayout);
+            Font = new Font("Segoe UI", 10F);
+            Name = "TaskAppForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Administrador de tareas";
+            _rootLayout.ResumeLayout(false);
+            _topbar.ResumeLayout(false);
+            _navLayout.ResumeLayout(false);
+            _navLayout.PerformLayout();
+            _navActions.ResumeLayout(false);
+            _navActionsUser.ResumeLayout(false);
+            _bodyLayout.ResumeLayout(false);
+            _sidebar.ResumeLayout(false);
+            _sideMenu.ResumeLayout(false);
+            _sideHeader.ResumeLayout(false);
+            _contentWrapper.ResumeLayout(false);
+            _contentLayout.ResumeLayout(false);
+            _contentLayout.PerformLayout();
+            _filtersLayout.ResumeLayout(false);
+            _filtersLayout.PerformLayout();
+            _gridCard.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)_grid).EndInit();
+            _userContentLayout.ResumeLayout(false);
+            _userContentLayout.PerformLayout();
+            _userFiltersLayout.ResumeLayout(false);
+            _userFiltersLayout.PerformLayout();
+            _userGridCard.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)_userGrid).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -734,6 +962,7 @@
         private System.Windows.Forms.FlowLayoutPanel _sideMenu;
         private System.Windows.Forms.Button _btnDashboard;
         private System.Windows.Forms.Button _btnTareas;
+        private System.Windows.Forms.Button _btnUsuarios;
         private System.Windows.Forms.Panel _contentSeparator;
         private System.Windows.Forms.Panel _gridCard;
         private System.Windows.Forms.TextBox _txtSearch;
@@ -748,5 +977,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn _colDue;
         private System.Windows.Forms.DataGridViewTextBoxColumn _colNotes;
         private System.Windows.Forms.ToolTip _toolTip;
+
+        // User section
+        private System.Windows.Forms.FlowLayoutPanel _navActionsUser;
+        private System.Windows.Forms.Button _btnNewUser;
+        private System.Windows.Forms.Button _btnEditUser;
+        private System.Windows.Forms.Button _btnDeleteUser;
+        private System.Windows.Forms.Button _btnRefreshUser;
+        private System.Windows.Forms.TableLayoutPanel _userContentLayout;
+        private System.Windows.Forms.TableLayoutPanel _userFiltersLayout;
+        private System.Windows.Forms.TextBox _txtUserSearch;
+        private System.Windows.Forms.Panel _userGridCard;
+        private System.Windows.Forms.DataGridView _userGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _colUserName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _colUserDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _colUserCreatedAt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _colUserUpdatedAt;
     }
 }
