@@ -28,7 +28,7 @@ La capa de datos actualmente usa **SQLite + Dapper**, pero la solución está pr
   - Texto en nombre
 - Crear nuevos usuarios **solo si** se ha completado el campo **nombre**.
 - Editar usuarios **solo si** se ha completado el campo **nombre**.
-- Eliminar usuarios.
+- Eliminar usuarios **solo si** no tiene tareas asignadas.
 
 ## Tecnologías
 - **.NET 8**
