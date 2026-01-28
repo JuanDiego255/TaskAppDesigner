@@ -492,7 +492,7 @@ public partial class TaskAppForm : Form
     private async void BtnDeleteUser_Click(object? sender, EventArgs e)
     {
         var selected = GetSelectedUser();
-        if (selected is null) return;
+        if (selected is null) return;       
 
         var ok = MessageBox.Show("¿Eliminar el usuario seleccionado?", "Confirmar",
             MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -500,6 +500,13 @@ public partial class TaskAppForm : Form
 
         try
         {
+            var count = _uvm.GetTareasById(selected.Id).Result;
+            if(count > 0)
+            {
+                MessageBox.Show("Este usuario tiene tareas asignadas, no es posible eliminarlo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+                
             await _uvm.DeleteAsync(selected.Id);
             await ReloadUserGridAsync();
         }

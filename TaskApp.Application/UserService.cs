@@ -48,5 +48,16 @@ public class UserService
             ?? throw new InvalidOperationException("El usuario no existe.");
 
         await _repo.DeleteAsync(id, ct);
-    }    
+    }
+    /// <summary>
+    /// Esta función se encarga de obtener las tareas asignadas por el usuario seleccionado.   
+    /// </summary>
+    /// <param name="id">Id del usuario a consultar</param>
+    /// <param name="ct">Permite cancelar la operación de una manera controlada</param>
+    public async Task<int> GetTareasById(long id, CancellationToken ct)
+    {
+        var count = await _repo.GetTareasById(id, ct);
+
+        return count;
+    }
 }

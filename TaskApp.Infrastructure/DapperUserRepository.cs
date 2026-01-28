@@ -82,6 +82,22 @@ public class DapperUserRepository : IUserRepository
             UpdatedAtUtc = DateTime.Parse((string)row.UpdatedAtUtcStr),
         };
     }
+    public async Task<int> GetTareasById(long id, CancellationToken ct)
+    {
+        using var con = _factory.Create();
+        con.Open();
+
+        var count = await con.ExecuteScalarAsync<int>(
+            """
+                SELECT COUNT(*)
+                FROM tasks
+                WHERE assigned_user_id = @id;
+                """,
+            new { id }
+        );
+
+        return count;
+    }
 
     /// <summary>
     /// Esta función se encarga de crear nuevos usuarios (Sentencia directa en BD).   
@@ -119,7 +135,7 @@ public class DapperUserRepository : IUserRepository
         con.Open();
 
         await con.ExecuteAsync("""
-        UPDATE tasks
+        UPDATE users
         SET name=@Name,
             description=@Description,            
             updated_at_utc=@UpdatedAtUtc

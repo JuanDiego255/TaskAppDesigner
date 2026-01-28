@@ -47,4 +47,10 @@ public class UserViewModel
         => await _service.UpdateAsync(item, CancellationToken.None);
     public async Task DeleteAsync(long id)
         => await _service.DeleteAsync(id, CancellationToken.None);
+    public async Task<int> GetTareasById(long id)
+    {
+        var count = await _service.GetTareasById(id, CancellationToken.None);
+        return count;
+    }
+       
 }

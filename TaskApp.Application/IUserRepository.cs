@@ -14,6 +14,7 @@ public interface IUserRepository
     Task<IReadOnlyList<UserItem>> GetAsync(UserQuery query, CancellationToken ct);
     Task<UserItem?> GetByIdAsync(long id, CancellationToken ct);
     Task<long> CreateAsync(UserItem item, CancellationToken ct);
+    Task<int> GetTareasById(long id, CancellationToken ct);    
     Task UpdateAsync(UserItem item, CancellationToken ct);
     Task DeleteAsync(long id, CancellationToken ct);
 }
